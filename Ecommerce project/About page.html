@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About page</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <style>
+        *{
+ margin: 0;
+ padding:0;
+ box-sizing: border-box;
+}
+.container{
+    display: flex;
+   margin-top: 20px;
+    justify-content: space-around;
+}
+h1{
+    margin-left: 100px;
+    margin-top: 20px;
+}
+header{
+    background-color:  lightgray;
+   height:100px;
+   margin-top: -20px;
+}
+ ul li{
+    display: inline; 
+} 
+ul li a{
+    padding: 20px;
+    text-decoration: none;
+    color: black;
+    margin-top: 10px;
+}
+.pages{
+    margin-left:400px;
+    position:relative;
+    top:-20px;
+    font-size: 20px;
+    margin-top: 10px;
+}
+.buton{
+    margin-left: 1050px;
+    position:relative;
+    top:-50px;
+}
+button{
+    padding: 10px 20px;
+     margin: 0px 20px; 
+    border-radius: 5px;
+}
+button:active{
+    background-color: black;
+    color:white;
+}
+h2{
+    text-align: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin-top: 50px;
+}
+.para{
+    font-size: large;
+    font-family:sans-serif;
+    margin-top: 50px;
+}
+h3{
+    text-align: center;
+    font-size: x-large;
+}
+hr{
+    margin-top: 20px;
+}
+h3{
+    margin-top: 20px;
+}
+.image{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap:10px;
+}
+img{
+    width:300px;
+    height:300px;
+    margin-top: 50px;
+    border:1px solid gray;
+    border-radius: 10px;
+    padding-bottom:100px;
+    margin-left: 30px;   
+}
+h4{
+    margin-top: -80px;
+    text-align: center;
+    margin-right: 80px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+.msg{
+    text-align: center;
+    margin-top: 100px;
+}
+.text{
+    margin-left: 43%;
+    margin-top: 50px;
+}
+/* .btn1{
+padding: 10px;
+width: 80px;
+border-radius: 10px; 
+} */
+  </style>
+</head>
+<body>
+    <header>
+        <nav>
+        <div class="container">
+        </div>
+        <h1 style="margin-top: 30px;">Ecommerce</h1>
+        <div class="pages">
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="About page.html">About</a></li>
+                <li><a href="Contact.html">Contact</a></li>
+            </ul>
+        </div>
+        <!-- <div class="btn">
+            <a href="./Login.html"><input class="btn1" type="button" name="login" value="Login"/></a>
+           <a href="./Register page.html"><input class="btn1" type="button" name="login" value="Register"/></a>
+           <a href="./cart.html"><input class="btn1" type="button" name="Login" value="cart"></a>
+       </div>  -->
+         <div class="buton">
+            <a href="Login.html"><button><i class="fa-solid fa-right-to-bracket"></i>Login</button></a>
+            <a href="Register page.html"><button><i class="fa-solid fa-user"></i>Register</button></a>
+            <button><i class="fa-solid fa-cart-shopping"></i>Cart</button>
+        </div>   
+    </nav>
+       </header>
+    <h2>About Us</h2>
+    <hr/>
+    <p class="para">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum facere doloremque veritatis odit similique sequi. Odit amet fuga nam quam quasi facilis sed doloremque saepe sint perspiciatis explicabo totam vero quas provident ipsam, veritatis nostrum velit quos recusandae est mollitia esse fugit dolore laudantium. Ex vel explicabo earum unde eligendi autem praesentium, doloremque distinctio nesciunt porro tempore quis eaque labore voluptatibus ea necessitatibus exercitationem tempora molestias. Ad consequuntur veniam sequi ullam tempore vel tenetur soluta dolore sunt maxime aliquam corporis est, quo saepe dolorem optio minus sint nemo totam dolorum! Reprehenderit delectus expedita a alias nam recusandae illo debitis repellat libero, quasi explicabo molestiae saepe, dolorem tempore itaque eveniet quam dignissimos blanditiis excepturi harum numquam vel nihil? Ipsum</p>
+    <h3>Our Products</h3>
+    <hr/>
+    <div class="image">
+        <div class="text">
+        <img src="https://thumbs.dreamstime.com/z/men-s-fashion-casual-outfits-accessories-flat-lay-top-view-white-background-black-jeans-t-shirt-boots-173263422.jpg" alt="image"/>
+        <h4>Men's Clothing</h4>
+    </div>
+    <div class="text">
+        <img src="https://th.bing.com/th/id/OIP.U7FV9HAYNSl_ErPxwmH0CQHaEK?w=291&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7" alt="image"/>
+        <h4>Jewellery</h4></div>
+        <div class="text">
+        <img src="https://th.bing.com/th/id/OIP.gutg2VuSCL4IpKEQd0bORwHaFW?rs=1&pid=ImgDetMain" alt="image"/>
+        <h4>women's Clothing</h4></div>
+        <div class="text">
+        <img src="https://cticellular.com/wp-content/uploads/2020/02/consumer-electronics-1.jpg" alt="image"/>
+        <h4>Electronics</h4></div>
+    </div>
+    <div class="text">
+        <p> Made with <i class="fa-solid fa-heart" style="color: red;"></i> by <span style="text-decoration: underline;">Achievers IT</span></p>
+      </div>
+</body>
+</html>

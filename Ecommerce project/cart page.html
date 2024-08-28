@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart Page</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+   <style>
+    * {
+    margin: 0; 
+    padding: 0;
+}
+body {
+    font-family: Arial, sans-serif;
+    /* padding: 20px; */
+    background-color: #f9f9f9;
+}
+.main {
+    display: flex;
+    justify-content: space-around;
+    background-color: lightgray;
+    padding: 20px;
+}
+.nav ul li {
+    display: inline; 
+}
+li a {
+    text-decoration: none;
+    color: black;
+    font-size: larger;
+    padding: 20px;
+}
+.nav nav {
+    margin-top: 3px;
+}
+button {
+    padding: 10px;
+    margin: 10px;
+    border-radius: 5px;
+}
+.btn input {
+    padding: 10px;
+    border-radius: 5px;
+    margin: 8px;
+    width: 80px;
+}
+.head h1 {
+    font-size: 30px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.header {
+    text-align: center;
+    padding: 20px;
+    background-color: lightgray;
+}
+.cart-container {
+    display: flex;
+    justify-content: space-between;
+}
+.cart-items table, .order-summary table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+.cart-items th, .order-summary th {
+    background-color: #f2f2f2;
+    padding: 10px;
+}
+.cart-items td {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    text-align: center;
+}
+.order-summary td{
+    padding: 10px;
+    
+}
+.cart-items img {
+    height: 150px;
+    width: 170px;
+}
+.quantity-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.quantity-controls button {
+    padding: 5px 10px;
+    margin: 0 5px;
+    border: 1px solid #ddd;
+    background-color: #f2f2f2;
+    cursor: pointer;
+}
+.quantity-controls input {
+    width: 40px;
+    text-align: center;
+    border: 1px solid #ddd;
+    margin: 0 5px;
+}
+.h1 {
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+.hor {
+    margin-bottom: 80px;
+}
+.cart-items {
+    width: 70%;
+    border: 1px solid gainsboro;
+    margin-right: 35px;
+}
+.order-summary {
+    width: 30%;
+    border: 1px solid gainsboro;
+}
+.total-amount{
+    font-weight: bold;
+}
+.text{
+    text-align: center;
+    margin-top: 50px;
+}
+   </style>
+</head>
+<body>
+    <section class="main">
+        <div class="head">
+            <h1>Ecommerce</h1>
+        </div>
+        <div class="nav">
+            <nav>
+                <ul>
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="about page.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="btn">
+            <a href="./Login.html"><input class="btn1" type="button" name="login" value="Login"/></a>
+            <a href="./Register page.html"><input class="btn1" type="button" name="login" value="Register"/></a>
+            <a href="./cart page.html"><input class="btn1" type="button" name="login" value="cart"/></a>
+        </div>
+    </section>
+    <h1 class="h1">Cart</h1>
+    <hr class="hor">
+    <div class="cart-container">
+        <div class="cart-items">
+            <table id="cart-table">
+                <thead>
+                    <tr>
+                        <th>Items</th>
+                        <th>Title</th>
+                        <th>Quantity</th>
+                        <th>Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="order-summary">
+            <h2 style="background-color: #f2f2f2; padding: 5px;">Order Summary</h2>
+            <table>
+                <tbody>
+                    <tr>
+                        <td>Products:</td>
+                        <td id="number-of-products">0</td>
+                    </tr>
+                    <tr>
+                        <td>Shipping:</td>
+                        <td>$30.00</td>
+                    </tr>
+                    <tr class="total-amount">
+                        <td>Total Amount:</td>
+                        <td id="total-amount">$30.00</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="text">
+        <p> Made with <i class="fa-solid fa-heart" style="color: red;"></i> by <span style="text-decoration: underline;">AchieversIT</span></p>
+     </div>
+    <script>
+        
+        function updateCart() {
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const cartTableBody = document.getElementById('cart-table').querySelector('tbody');
+            let totalItems = 0;
+            let totalPrice = 0;
+
+            cart.forEach(item => {
+                const row = document.createElement('tr');
+                const itemTotal = item.price * item.quantity;
+
+                row.innerHTML = `
+                    <td><img src="${item.image}" alt="${item.title}"></td>
+                    <td>${item.title}</td>
+                    <td>
+                        <div class="quantity-controls">
+                            <button onclick="updateQuantity('${item.title}', -1)">-</button>
+                            <input type="text" value="${item.quantity}" readonly>
+                            <button onclick="updateQuantity('${item.title}', 1)">+</button>
+                        </div>
+                    </td>
+                    <td>$${itemTotal.toFixed(2)}</td>
+                `;
+
+                cartTableBody.appendChild(row);
+
+                totalItems += item.quantity;
+                totalPrice += itemTotal;
+            });
+
+            const shippingCost = 30;
+            const totalAmount = totalPrice + shippingCost;
+
+            document.getElementById('number-of-products').textContent = totalItems;
+            document.getElementById('total-amount').textContent = `$${totalAmount.toFixed(2)}`;
+        }
+
+        function updateQuantity(title, change) {
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const item = cart.find(item => item.title === title);
+            if (item) {
+                item.quantity += change;
+                if (item.quantity <= 0) {
+                
+                    const index = cart.indexOf(item);
+                    cart.splice(index, 1);
+                }
+                localStorage.setItem('cart', JSON.stringify(cart));
+                updateCart();
+            }
+        }
+        updateCart();
+    </script>
+</body>
+</html>
